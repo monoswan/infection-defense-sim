@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>감염병 도시 방어 시뮬레이터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>🦠 감염병 도시 방어 시뮬레이터</h1>
+    <div class="clock">
+      <span id="day-label">0일차 / 180일</span>
+      <button class="speed" data-speed="0">⏸ 일시정지</button>
+      <button class="speed" data-speed="1">▶ 1배속</button>
+      <button class="speed" data-speed="2">▶▶ 2배속</button>
+      <button class="speed" data-speed="4">▶▶▶ 4배속</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="panel" id="policies">
+      <h2>정책 선택</h2>
+      <p class="hint">정책은 선택한 다음 날부터 적용됩니다. 예산 2,000억 원으로 180일을 버티세요.</p>
+      <div class="card">
+        <div class="card-title">😷 마스크 착용</div>
+        <p class="card-desc" id="desc-mask"></p>
+        <button id="btn-mask" class="wide"></button>
+      </div>
+      <div class="card">
+        <div class="card-title">🚶 사회적 거리두기</div>
+        <p class="card-desc" id="desc-dist"></p>
+        <div class="seg" id="seg-dist"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">💉 백신 접종</div>
+        <p class="card-desc" id="desc-vax"></p>
+        <div class="seg" id="seg-vax"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🛏 병상 확충</div>
+        <p class="card-desc" id="desc-bed"></p>
+        <button id="btn-bed" class="wide"></button>
+      </div>
+    </aside>
+
+    <section class="center">
+      <div class="stats" id="stats"></div>
+      <main id="chart-slot"></main>
+      <div class="panel">
+        <h2>사건 기록</h2>
+        <ol id="log" class="log"></ol>
+      </div>
+    </section>
+  </div>
+
+  <div id="result" class="modal hidden"></div>
+
+  <script src="model.js"></script>
+  <script src="policy.js"></script>
+  <script src="chart.js"></script>
+  <script src="ui.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
