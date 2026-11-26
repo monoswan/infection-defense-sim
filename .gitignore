@@ -1,3 +1,8 @@
 .logs/
 CLAUDE.md
 .DS_Store
+.tests/
+.browsers/
+node_modules/
+package.json
+package-lock.json
